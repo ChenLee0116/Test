@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "CEfIwd+TsRg=",
+  "success": true,
+  "projectFilePath": "/workspaces/Test/BlazorHelloWorld/BlazorHelloWorld.csproj",
+  "expectedPackageFiles": [
+    "/home/codespace/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.12/microsoft.aspnetcore.app.internal.assets.10.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
