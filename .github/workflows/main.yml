@@ -1,0 +1,31 @@
+name: .NET Core Build and Run
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # 確保這裡的路徑依然是指向 Test/ 資料夾底下的專案
+      - name: Restore dependencies
+        run: dotnet restore Test/RazorPagesHelloWorld/RazorPagesHelloWorld.csproj
+
+      - name: Compile project
+        run: dotnet build Test/RazorPagesHelloWorld/RazorPagesHelloWorld.csproj --configuration Release --no-restore
+
+      - name: Run project
+        run: dotnet run --project Test/RazorPagesHelloWorld/RazorPagesHelloWorld.csproj --configuration Release --no-build
+        
