@@ -19,13 +19,15 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      # 確保這裡的路徑依然是指向 Test/ 資料夾底下的專案
+      # 💡 移除精準路徑，讓 .NET 自動在所有資料夾中尋找並還原
       - name: Restore dependencies
-        run: dotnet restore Test/RazorPagesHelloWorld/RazorPagesHelloWorld.csproj
+        run: dotnet restore
 
+      # 💡 讓 .NET 自動尋找並編譯專案
       - name: Compile project
-        run: dotnet build Test/RazorPagesHelloWorld/RazorPagesHelloWorld.csproj --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore
 
+      # 💡 讓 .NET 自動尋找並執行專案
       - name: Run project
-        run: dotnet run --project Test/RazorPagesHelloWorld/RazorPagesHelloWorld.csproj --configuration Release --no-build
+        run: dotnet run --configuration Release --no-build
         
