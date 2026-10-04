@@ -17,15 +17,13 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          # 這裡我們不寫死固定版本，讓它自動使用虛擬機內建最新的 .NET 10 SDK（從您的日誌中看到的）
+          dotnet-version: '10.x'
 
-      # 💡 告訴 .NET 搜尋所有子資料夾底下的任何 .csproj 檔案進行還原
+      # 💡 關鍵修正：直接指定剛才日誌裡確認的精準路徑（注意：前面不用加 Test/，因為專案就在根目錄層級）
       - name: Restore dependencies
-        run: dotnet restore **/*.csproj
+        run: dotnet restore RazorPagesHelloWorld/RazorPagesHelloWorld.csproj
 
-      # 💡 同樣使用通配符進行編譯
+      # 💡 關鍵修正：同樣直接指定該專案進行編譯
       - name: Compile project
-        run: dotnet build **/*.csproj --configuration Release --no-restore
-
-      # 💡 注意：我們把原本會無限轉圈圈的 `dotnet run` 移除了！
-      # 因為在自動化檢查（CI）中，只要上面兩步成功（能成功編譯），就代表您的專案完全正常。
+        run: dotnet build RazorPagesHelloWorld/RazorPagesHelloWorld.csproj --configuration Release --no-restore
