@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorPagesHelloWorld.Pages;
+namespace RazorPagesHelloWorld.Pages.Unit2;
 
 public class U02L01L01Model : PageModel
 {
@@ -9,6 +9,6 @@ public class U02L01L01Model : PageModel
 
     public void OnGet()
     {
-        Message = "1. Lab 1. ASP.NET core 3.0 project file";
+        Message = "Unit 2. ASP.NET core 3.0 project file";
     }
 }

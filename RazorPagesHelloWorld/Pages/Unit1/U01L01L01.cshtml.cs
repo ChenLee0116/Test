@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorPagesHelloWorld.Pages;
+namespace RazorPagesHelloWorld.Pages.Unit1;
 
 public class U01L01L01Model : PageModel
 {
@@ -9,6 +9,6 @@ public class U01L01L01Model : PageModel
 
     public void OnGet()
     {
-        Message = "1. Lab 1. ASP.NET Core razor pages introduction";
+        Message = "Unit 1. ASP.NET Core razor pages introduction";
     }
 }
